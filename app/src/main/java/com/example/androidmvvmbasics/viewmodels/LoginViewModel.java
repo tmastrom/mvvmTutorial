@@ -49,7 +49,7 @@ public class LoginViewModel extends BaseObservable {
     }
 
     public LoginViewModel() {
-        user = new User("","");
+        user = new User("","","");
     }
 
     public void onLoginClicked() {
@@ -57,6 +57,25 @@ public class LoginViewModel extends BaseObservable {
             setToastMessage(successMessage);
         else
             setToastMessage(errorMessage);
+    }
+
+    public void setButtonState(String buttonState) {
+        user.setButton(buttonState);
+        //notifyPropertyChanged(BR.buttonState);
+    }
+
+    public String getButtonState() { return user.getButton();}
+
+    public void onButtonClicked() {
+        // check what state button is in on/off
+        // change text to reflect new state
+        if (getButtonState().equals("ON")) {
+            setButtonState("OFF");
+        }
+        else {
+            setButtonState("ON");
+        }
+        setToastMessage(getButtonState());
     }
 
     public Boolean isInputDataValid() {

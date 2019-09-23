@@ -6,10 +6,14 @@ public class User {
     private String email;
     private String password;
 
+    private String buttonState;
+
     // constructor takes email and password strings and assigns them to the class variables
-    public User(String email, String password) {
+    public User(String email, String password, String buttonState) {
         this.email = email;
         this.password = password;
+
+        this.buttonState = buttonState;
     }
 
     // set email method
@@ -28,5 +32,10 @@ public class User {
     public String getPassword() {
         return password;
     }
+
+    ///
+    public void setButton(String buttonState) {this.buttonState = buttonState;}
+
+    public String getButton() { return buttonState;}
 
 }
