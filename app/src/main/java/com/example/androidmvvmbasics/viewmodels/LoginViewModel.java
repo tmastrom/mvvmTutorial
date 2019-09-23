@@ -49,7 +49,8 @@ public class LoginViewModel extends BaseObservable {
     }
 
     public LoginViewModel() {
-        user = new User("","","");
+        user = new User("","","OFF");
+        setToastMessage(getButtonState());
     }
 
     public void onLoginClicked() {
@@ -61,6 +62,7 @@ public class LoginViewModel extends BaseObservable {
 
     public void setButtonState(String buttonState) {
         user.setButton(buttonState);
+        setToastMessage(getButtonState());
         //notifyPropertyChanged(BR.buttonState);
     }
 
